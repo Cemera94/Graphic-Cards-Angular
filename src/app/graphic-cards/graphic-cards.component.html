@@ -1,0 +1,10 @@
+<app-pagination (onPageChange)="onPageChanged($event)" [page]="queryParams.page" [pageSize]="queryParams.pageSize" [count]="count" (onPageSizeChange)="onPageSizeChanged($event)"></app-pagination>
+
+<div class="row" *ngFor="let item of graphicCards">
+    <div class="col-9">
+        <app-graphic-cards-item [item]="item" (onTitleClicked)="onCardtitleClicked($event)" [itemGrade]="item.grade" (grade)="onGradeButtonClicked($event)"></app-graphic-cards-item>
+    </div>
+    <div class="col-3">
+        <app-comments *ngIf="item._id===cardId" [comments]="comments"></app-comments>
+    </div>
+</div>

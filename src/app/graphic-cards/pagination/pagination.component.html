@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-dark" (click)="onButtonClick(page-1)" [hidden]="page<=1">Prev</button>
+        <button class="btn btn-dark" (click)="onButtonClick(page+1)" [hidden]="page*pageSize>=count">Next</button>
+    </div>
+    <div class="col-9">
+        <button class="btn btn-dark" (click)="onPageSizeClick(5)">5</button>
+        <button class="btn btn-dark" (click)="onPageSizeClick(10)">10</button>
+        <button class="btn btn-dark" (click)="onPageSizeClick(15)">15</button>
+    </div>
+</div>
