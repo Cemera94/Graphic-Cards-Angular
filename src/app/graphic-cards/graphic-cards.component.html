@@ -2,9 +2,9 @@
 
 <div class="row" *ngFor="let item of graphicCards">
     <div class="col-9">
-        <app-graphic-cards-item [item]="item" (onTitleClicked)="onCardtitleClicked($event)" [itemGrade]="item.grade" (grade)="onGradeButtonClicked($event)"></app-graphic-cards-item>
+        <app-graphic-cards-item [card]="item" (onTitleClicked)="onCardtitleClicked($event)" [itemGrade]="item.grade" (grade)="onGradeButtonClicked($event, item)"></app-graphic-cards-item>
     </div>
     <div class="col-3">
-        <app-comments *ngIf="item._id===cardId" [comments]="comments"></app-comments>
+        <app-comments *ngIf="item._id===cardId" [comments]="comments" (commentsChanged)="onNewCommentAdded($event)"></app-comments>
     </div>
 </div>

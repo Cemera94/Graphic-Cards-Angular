@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PaginationComponent } from './graphic-cards/pagination/pagination.component';
 import { CommentsComponent } from './graphic-cards/comments/comments.component';
 import { GraphicCardsItemComponent } from './graphic-cards/graphic-cards-item/graphic-cards-item.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { GraphicCardsItemComponent } from './graphic-cards/graphic-cards-item/gr
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

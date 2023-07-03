@@ -66,7 +66,35 @@ export class GraphicCardsComponent implements OnInit {
     this.getComments();
   }
 
-  onGradeButtonClicked(newGrade: number){
-    this.grade = newGrade;    
+  onGradeButtonClicked(newGrade: number, card: GraphicCards){
+    card.grade = newGrade;
+
+    this.service.updateCard(card).subscribe({
+      next: (card: GraphicCards) => {
+        this.updateCardView(card);
+      },
+      error: (err) => {console.log(err);
+      }
+    })
+  }
+
+  updateCardView(card: GraphicCards){
+    for (let i = 0; i < this.graphicCards.length; i++) {
+      if (this.graphicCards[i]._id == card._id) {
+        this.graphicCards[i] = card;
+        return;
+      }
+    }
+  }
+
+  onNewCommentAdded(comment: Comments){
+    comment.cards = this.cardId;
+
+    this.service.addComment(this.cardId, comment).subscribe({
+      next: (comment: Comments) => {
+        this.comments.push(comment);
+      },
+      error: (err) => console.log(err)
+    })
   }
 }

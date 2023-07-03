@@ -1,15 +1,15 @@
 <div class="row mt-2">
     <div class="col-2">
-        <img src="../../{{item.image}}" alt="">
+        <img src="../../{{card.image}}" alt="">
     </div>
     <div class="col-10">
-        <span style="color: blue;" (click)="onCardClicked(item._id)">{{item.title}}</span> {{item.subtitle}}
-        <p>{{item.description}}</p>
+        <span style="color: blue;" (click)="onCardClicked(card._id)">{{card.title}}</span> {{card.subtitle}}
+        <p>{{card.description}}</p>
         <div class="row">
             <div class="col-2 ms-auto">
-                <button class="btn btn-success" (click)="onGradeClicked(item.grade+1)">+</button>
-                {{item.grade}}
-                <button class="btn btn-danger" (click)="onGradeClicked(item.grade-1)">-</button>
+                <button class="btn btn-success" (click)="onGradeClicked(card.grade+1)">+</button>
+                {{card.grade}}
+                <button class="btn btn-danger" (click)="onGradeClicked(card.grade-1)">-</button>
             </div>
         </div>
     </div>

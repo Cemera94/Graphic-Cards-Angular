@@ -8,7 +8,7 @@ import { GraphicCards } from 'src/app/model/graphic-cards.model';
 })
 export class GraphicCardsItemComponent implements OnInit {
 
-  @Input() item: GraphicCards = new GraphicCards();
+  @Input() card: GraphicCards = new GraphicCards();
   @Input() itemGrade: number = 0;
   @Output() onTitleClicked: EventEmitter<number> = new EventEmitter();
   @Output() grade: EventEmitter<number> = new EventEmitter();
@@ -23,6 +23,6 @@ export class GraphicCardsItemComponent implements OnInit {
   }
 
   onGradeClicked(newGrade: number){
-    this.grade.emit(newGrade);
+    this.grade.emit(newGrade);    
   }
 }

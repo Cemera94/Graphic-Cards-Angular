@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { GraphicCardsSearchResult } from '../model/graphic-cards-search-result.model';
 import { Observable, map } from 'rxjs';
 import { Comments } from '../model/comments.model';
+import { GraphicCards } from '../model/graphic-cards.model';
 
 const baseUrl = "http://localhost:3000/api/cards";
 
@@ -36,5 +37,15 @@ export class GraphicCardsService {
     }))
   }
   
-  
+  updateCard(card: GraphicCards): Observable<GraphicCards> {
+    return this.http.put(`${baseUrl}/${card._id}`, card).pipe(map((data: any) => {
+      return new GraphicCards(data);
+    }))
+  }
+
+  addComment(cardId: number, comment: Comments): Observable<Comments> {
+    return this.http.post(`${baseUrl}/${cardId}/comments`, comment).pipe(map((data: any) => {
+      return new Comments(data);
+    }))
+  }
 }
